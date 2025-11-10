@@ -3,10 +3,14 @@ import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
-  imports: [LoginComponent],
+  imports: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'learn-angular';
+
+  onClick() {
+    alert('button clicked');
+  }
 }
