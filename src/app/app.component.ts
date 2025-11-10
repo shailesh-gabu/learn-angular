@@ -8,7 +8,20 @@ import { LoginComponent } from './login/login.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'learn-angular';
+  //only accept string
+  title: string = 'learn-angular';
+
+  //only accept number
+  count: number = 10;
+
+  //string and number both accept
+  data: string | number = 'dummy data';
+
+  //only accept boolean
+  isValid: boolean = true;
+
+  //accept any data
+  storeData: any = '';
 
   onClick() {
     alert('button clicked');
