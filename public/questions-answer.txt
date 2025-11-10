@@ -6,3 +6,13 @@ Syntax:-
 Example:-
 <p>{{ username }}</p>
 Note:- Useful for displaying values; expressions are evaluated in component context.
+
+2. What is a Component in Angular?
+Answer:-
+A component controls a portion of the UI — it has a template, styles, and a TypeScript class.
+Syntax:-
+@Component({ selector: 'app-name', templateUrl: '...', styleUrls: [...] })
+Example:-
+@Component({ selector: 'app-home', template: '<h1>Home</h1>' })
+export class HomeComponent {}
+Note:- Apps are a tree of components.
