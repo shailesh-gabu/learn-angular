@@ -1,0 +1,122 @@
+.card {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 128, 0, 0.07);
+}
+
+.loader {
+  width: 100%;
+  display: block;
+}
+.skeleton-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--rowGap);
+  background: green;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.skeleton-row {
+  width: 100%;
+  display: flex;
+}
+
+/* row vertical align */
+.align-y-top {
+  align-items: flex-start;
+}
+.align-y-center {
+  align-items: center;
+}
+.align-y-bottom {
+  align-items: flex-end;
+}
+
+/* IMPORTANT FIX */
+.col {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.skeleton-row {
+  width: 100%;
+  display: flex;
+}
+/* section horizontal align */
+.align-x-left {
+  align-items: flex-start;
+}
+.align-x-center {
+  align-items: center;
+}
+.align-x-right {
+  align-items: flex-end;
+}
+
+.circle-col {
+  display: flex;
+}
+
+.lines-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.sk-circle {
+  border-radius: 50%;
+}
+
+.sk-line {
+  border-radius: 6px;
+  min-width: 60px;
+}
+
+.sk-btn {
+  border-radius: 10px;
+  min-width: 70px;
+}
+.lines-col,
+.buttons-col,
+.circle-col {
+  width: 100%;
+}
+
+.align-x-right .sk-line,
+.align-x-right .sk-btn,
+.align-x-right .sk-circle {
+  margin-left: auto;
+}
+
+.align-x-center .sk-line,
+.align-x-center .sk-btn,
+.align-x-center .sk-circle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg) 25%,
+    var(--fg) 50%,
+    var(--bg) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer var(--speed) ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

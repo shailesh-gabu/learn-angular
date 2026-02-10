@@ -1,0 +1,27 @@
+<div class="skeleton-wrapper" [style.--rowGap.px]="rowGap" [style.--bg]="backgroundColor" [style.--fg]="foregroundColor"
+    [style.--speed.s]="speed">
+    <div class="skeleton-row" *ngFor="let row of rows" [style.gap.px]="getRowGap(row)" [ngClass]="getAlignY(row)">
+        <div class="col" *ngFor="let section of row.sections"
+            [style.flex]="'0 0 calc(' + getSectionWidth(section) + '% - ' + getRowGap(row) + 'px)'"
+            [ngClass]="getAlignX(section)">
+
+            <!-- CIRCLE -->
+            <div *ngIf="section.type === 'circle'" class="circle-col">
+                <div class="sk-circle shimmer" [style.minWidth.px]="section.circle.size"
+                    [style.height.px]="section.circle.size"></div>
+            </div>
+
+            <!-- LINES -->
+            <div *ngIf="section.type === 'lines'" class="lines-col" [style.gap.px]="getSectionGap(section)">
+                <div *ngFor="let line of section.lines" class="sk-line shimmer" [style.width.%]="line.width"
+                    [style.height.px]="line.height || 12"></div>
+            </div>
+
+            <!-- BUTTONS -->
+            <div *ngIf="section.type === 'buttons'" class="buttons-col" [style.gap.px]="getSectionGap(section)">
+                <div *ngFor="let btn of section.buttons" class="sk-btn shimmer" [style.width.%]="btn.width"
+                    [style.height.px]="btn.height || 30"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.skeleton-wrapper {
+  width: 100%;
+}
+
+.skeleton-row-container {
+  width: 100%;
+}
+
+.skeleton-row {
+  width: 100%;
+}
+
+.skeleton-group {
+  display: flex;
+}
+
+.skeleton {
+  background: #e2e2e2;
+  position: relative;
+  overflow: hidden;
+  display: block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      #ffffffb3 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+
+    animation: shimmer var(--speed, 1.3s) infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}

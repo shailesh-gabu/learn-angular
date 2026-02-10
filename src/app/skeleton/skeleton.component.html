@@ -1,0 +1,32 @@
+<div class="skeleton-wrapper">
+
+    <div *ngFor="let row of layout" class="skeleton-row-container" [style.marginBottom]="getRowGap(row)">
+
+        <div class="skeleton-row" [ngStyle]="getRowStyle(row)">
+
+            <!-- Render row items recursively -->
+            <ng-container *ngTemplateOutlet="renderNodes; context: { nodes: row.items }"></ng-container>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Recursive Template -->
+<ng-template #renderNodes let-nodes="nodes">
+    <ng-container *ngFor="let node of nodes">
+
+        <!-- GROUP NODE -->
+        <div *ngIf="isGroup(node)" class="skeleton-group" [ngStyle]="getGroupStyle(node)">
+
+            <ng-container *ngTemplateOutlet="renderNodes; context: { nodes: node.children }"></ng-container>
+
+        </div>
+
+        <!-- BOX NODE -->
+        <div *ngIf="!isGroup(node)" class="skeleton" [ngStyle]="getItemStyle(node)">
+        </div>
+
+    </ng-container>
+</ng-template>
